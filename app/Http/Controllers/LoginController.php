@@ -19,21 +19,33 @@ class LoginController extends Controller
 
     public function auth(Request $request)
     {
+        $token = $request->token;
+        $user = User::where('token', $token)->first();
+        // dd($user);
         $messages = [
             'username.required' => 'Username harus diisi',
             'password.required' => 'Password harus diisi',
             'password.min' => 'Password harus memiliki minimal 8 karakter',
             'password.max' => 'password tidak boleh lebih dari 225 karakter'
         ];
+
         $validate = $request->validate([
             'username' => 'required',
             'password' => ['required', 'min:8', 'max:225']
         ], $messages);
+
+
+        if ($request->input('username') !== $user->username) {
+            notify()->error('Invalid Token, Periksa kembali token anda');
+            return back();
+        }
         if (Auth::attempt($validate)) {
             $request->session()->regenerate();
             notify()->emotify('success', 'Selamat Datang ' . $request->input('username'));
             return redirect()->intended('/dashboard');
         }
+
+
         notify()->error('Login Error, periksa username dan password');
         return back();
     }

@@ -39,15 +39,13 @@
                     @endif
                 </div>
                 
+                @if (count($proses) >= 2)
                 <div class="border rounded-md md:w-[500px] w-[300px] mx-auto p-3 my-5 border-black shadow-lg">
-                    @if (count($proses) >= 2)
                     <p class="inline md:text-2xl text-xl ">{{ count($proses) }} <span class=" text-active  flex justify-center items-center font-bold">{{ $proses->last()->name}}</span></p>
-                    @else
-    
-                    <p class="inline md:text-2xl text-xl ">{{ count($proses)  }} <span class=" text-active  flex justify-center items-center font-bold">{{ $proses->last()->name}}</span></p>
-                    @endif
                     <p class="text-center my-4">{{ $proses->last()->desc }}</p>
-                        </div>
+
+                </div>
+                @endif
             
     </div>
     @endif
@@ -60,19 +58,22 @@
             <div class="my-20">
                 @foreach ($fitur as $fitur)
                     
-                <div class="flex bg-active text-white md:w-1/2 w-[80%] mx-auto p-5 rounded-xl gap-8 my-16 shadow-lg">
+                <div class="flex bg-active text-white md:w-1/2 w-[80%] mx-auto p-5 rounded-xl gap-8 my-16 shadow-lg justify-center">
                     @if ($loop->iteration % 2 == 1)
-                    <img src="{{ asset('image/hp.png') }}" alt="" width="200" class="md:block hidden">
+                    @if ($fitur->icon)
+                    <img src="{{ asset('storage/'.$fitur->icon) }}" alt="" width="160" class="md:block hidden rounded-md">
+                        
+                    @endif
                <div class="">
                    <p class="text-2xl font-bold text-center mb-5">{{ $fitur->name }}</p>
-                   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit id harum quis eaque ad dolorem nulla neque? Beatae, inventore qui!</p>
+                   <p>{{ $fitur->desc }}</p>
                 </div>
                 @else
                 <div class="">
                     <p class="text-2xl font-bold text-center mb-5">{{ $fitur->name }}</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit id harum quis eaque ad dolorem nulla neque? Beatae, inventore qui!</p>
+                    <p>{{ $fitur->desc }}</p>
                 </div>
-                <img src="{{ asset('image/hp.png') }}" alt="" width="200" class="md:block hidden">
+                <img src="{{ asset('storage/'.$fitur->icon) }}" alt="" width="160" class="md:block hidden rounded-md">
                     @endif
                 </div>
                 @endforeach

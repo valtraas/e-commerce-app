@@ -11,7 +11,7 @@
     <div class="w-[40%] mx-auto border  my-10 pt-4 rounded-lg ">
         <div class="text-center">
             <p class="mb-5 text-2xl font-bold dark:text-active">{{ $client->name }}</p>
-            <img src="https://source.unsplash.com/500x500?planets" alt="" class="mx-auto w-44 rounded-full">
+            <img src="{{ asset('image/Avatar.png') }}" alt="" class="mx-auto w-32 rounded-full">
         </div>
         <div class=" mt-10 ">
             <div>

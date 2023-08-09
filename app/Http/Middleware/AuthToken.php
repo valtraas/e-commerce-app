@@ -19,9 +19,11 @@ class AuthToken
         $token = $request->token;
 
         $user = User::where('token', $token)->first();
+        // dd($user);
         if (!$user) {
             return redirect('/');
         }
+
         return $next($request);
     }
 }

@@ -4,10 +4,10 @@
     <div class=" flex items-center px-4 dark:text-active  gap-4 text-2xl font-bold duration-300 delay-150">
         <div class=" rounded-full  text-xl text-white ">
             @if ($user->image)
-            <img src="{{ asset('storage/'.$user->image) }}" alt="" class=" w-20 rounded-full">
+            <img src="{{ asset('storage/'.$user->image) }}" alt="{{ $user->name }}" class=" w-10 rounded-full">
             
             @else
-            <img src="https://source.unsplash.com/500x500?planets" alt="" class=" w-10 rounded-full">
+            <img src="{{ asset('image/Avatar.png') }}" alt="" class=" w-10 rounded-full">
                 
             @endif
 
@@ -26,10 +26,10 @@
             <p class="mb-5 text-2xl font-bold dark:text-active">{{ $user->name }}</p>
             @if ($user->image)
                 
-            <img src="{{ asset('storage/'.$user->image) }}" alt="" class="mx-auto w-44 rounded-full">
+            <img src="{{ asset('storage/'.$user->image) }}" alt="{{ $user->name }}" class="mx-auto w-44 rounded-full">
             @else
                 
-            <img src="https://source.unsplash.com/500x500?planets" alt="" class="mx-auto w-44 rounded-full">
+            <img src="{{ asset('image/Avatar.png') }}" alt="" class="mx-auto w-32 rounded-full">
             @endif
         </div>
         <div class=" mt-10 ">
@@ -47,6 +47,10 @@
               <div class="text-center mb-5 ">
                   <p class="font-bold text-2xl mb-3">Role</p>
                   <p class="text-xl">{{ $user->roles->name }}</p>
+              </div>
+              <div class="text-center mb-5 ">
+                  <p class="font-bold text-2xl mb-3">Token</p>
+                  <p class="text-xl">{{ $user->token }}</p>
               </div>
              
           </div>

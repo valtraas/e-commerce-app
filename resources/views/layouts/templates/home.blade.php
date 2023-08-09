@@ -13,7 +13,9 @@
     <script src="https://kit.fontawesome.com/ed30145a20.js" crossorigin="anonymous"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-    @if (request()->is('login'))
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @if (request()->is('login*'))
         @notifyCss
     @endif
 </head>
@@ -27,15 +29,14 @@
 <main>
 @yield('content')
 <div id="up-button" class="fixed right-4 bottom-5 hidden opacity-70 hover:opacity-100">
-    <a href="#" class="bg-white border-2  hover:bg-active hover:text-white rounded-full  p-2.5 duration-150"><i
-            class="fa-solid fa-plane-up text-xl"></i></a>
+    <a href="#" class="bg-white border  hover:bg-active hover:text-white rounded-full  p-2 duration-150"><i class="fa-solid fa-chevron-up text-xl"></i></a>
 </div>
 </main>
 @if (!request()->is('login*'))
 @include('layouts.footer')
 @endif
 @yield('js')
-@if(request()->is('login'))
+@if(request()->is('login*'))
 @notifyJs
 @endif
 <script src="{{ asset('js/navbar.js') }}"></script>

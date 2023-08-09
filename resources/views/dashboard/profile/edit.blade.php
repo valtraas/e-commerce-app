@@ -2,8 +2,13 @@
 @section('content')
 <div class="h-16 border-b border-active flex items-center">
     <div class=" flex items-center px-4 dark:text-active  gap-4 text-2xl font-bold duration-300 delay-150">
-        <div class="bg-blue-600 rounded-xl p-2 text-xl text-white shadow-xl">
-            <i class="fa-solid fa-user text-2xl"></i>
+        <div class=" text-xl text-white shadow-xl">
+            @if ($user->image)
+            <img src="{{ asset('storage/'.$user->image) }}" alt="{{ $user->name }}" class="w-10">
+                
+            @else
+                <img src="{{ asset('image/Avatar.png') }}" alt="" class="w-10">
+            @endif
         </div>
         <p>Edit Profile {{ $user->name }} </p>
     </div>

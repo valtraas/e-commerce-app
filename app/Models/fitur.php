@@ -16,4 +16,11 @@ class fitur extends Model
         // return $this->belongsToMany(Category::class, 'fitur_layanan');
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeFound($query, $fitur)
+    {
+        $query->when($fitur ?? false, function ($query, $fitur) {
+            return $query->where('name', 'like', '%' . $fitur . '%');
+        });
+    }
 }

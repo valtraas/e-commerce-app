@@ -21,10 +21,10 @@ class proses extends Model
     {
         return 'name';
     }
-    public function scopeSteps($query, array $step)
+    public function scopeSteps($query,  $step)
     {
 
-        $query->when($step['search'] ?? false, function ($query, $steps) {
+        $query->when($step ?? false, function ($query, $steps) {
             return $query->where('name', 'like', '%' . $steps . '%');
         });
     }

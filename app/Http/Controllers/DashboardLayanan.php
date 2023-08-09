@@ -118,12 +118,13 @@ class DashboardLayanan extends Controller
 
     public function detail(Category $category)
     {
+        // dd(request('proses'));
         return view('dashboard.layanan.detail.detail', [
             'title' => 'Dashboard | ' . $category->name,
             'layananList' => Category::all(),
             'layanan' => $category,
-            'proses' => proses::where('category_id', $category->id)->latest()->Steps(request(['search']))->get(),
-            'fitur' => fitur::where('category_id', $category->id)->latest()->get(),
+            'proses' => proses::where('category_id', $category->id)->latest()->Steps(request('proses'))->get(),
+            'fitur' => fitur::where('category_id', $category->id)->Found(request('fitur'))->latest()->get(),
         ]);
     }
     // proses layanan
@@ -195,9 +196,10 @@ class DashboardLayanan extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'desc' => 'required|max:225',
-            'icon' => 'image|file|max2000|nullable'
+            'icon' => 'image|file|max:2000|nullable'
         ]);
         $validatedData['category_id'] = $category->id;
+        // dd($validatedData);
         if ($request->file('icon')) {
             $validatedData['icon'] = $request->file('icon')->store('fitur-icon');
         }

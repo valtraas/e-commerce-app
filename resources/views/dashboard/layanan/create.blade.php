@@ -68,7 +68,5 @@ fetch('/dashboard/layanan/slug?name='+ name.value)
     .then(data => slug.value = data.slug)
 
 });
-
-
 </script>
 @endsection

@@ -63,28 +63,24 @@
                             @csrf
                             @method('PUT')
                             <input type="hidden" name="status" >
-                            <button type="submit">
+                            <button type="submit" class="statusButton">
                                 <i class="fa-solid fa-check"></i>
                             </button>
                             </form>
                                 </div>
                                 @endif
-                                <form action="{{ route('client.eject',['kontak'=>$item->name]) }}" method="post">
+                                @if ($item->status !=='Terselesaikan')
+                                     <form action="{{ route('client.eject',['kontak'=>$item->name]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    @if ($item->status !== 'Terselesaikan')
-                                        
-                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800"
-                                        onclick="return confirm('Apakah anda yakin menolak project ? ')">
+                                   
+                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800 deleteButton"
+                                       >
                                         <i class="fa-regular fa-circle-xmark"></i>
                                     </button>
-                                    @else
-                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800"
-                                        onclick="return confirm('Hapus project yang terselesaikan ? ')">
-                                        <i class="fa-regular fa-circle-xmark"></i>
-                                    </button>
-                                    @endif
                                 </form>
+                                @endif
+                               
 
                             </div>
                         </td>
@@ -138,8 +134,8 @@
                                 <form action="{{ route('ulasan.delete',['ulasan'=>$item->kontak->name]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800"
-                                        onclick="return confirm('Apakah anda yakin ? ')">
+                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800 deleteButton"
+                                        >
 
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>

@@ -15,7 +15,7 @@
 
 <div class="mx-20">
     <div class="border w-[25%] mx-auto p-6 rounded-xl shadow-xl">
-        <form action="/dashboard/portofolio/{{ $portofolio->judul }}/update" method="post" enctype="multipart/form-data">
+        <form action="{{ route('portofolio.update',['portofolio'=>$portofolio->judul]) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 <div class="mb-5">
@@ -39,7 +39,7 @@
     @enderror
 </div>
 <div class="mb-5">
-    <input type="hidden" class="px-2 py-1 rounded-xl border border-active" value="{{ $portofolio->id }}" name="category_id">
+    <input type="hidden" class="px-2 py-1 rounded-xl border border-active" value="{{ $portofolio->category->id }}" name="category_id">
 </div>
 <div class="mb-5">
     <label for="Judul" class="block mb-3 dark:text-active font-bold text-xl">Thumbnail</label>

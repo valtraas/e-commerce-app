@@ -47,7 +47,7 @@ class DashboardPortofolio extends Controller
     {
         $validatedData = $request->validate([
             'judul' => 'required|unique:portofolio',
-            'link' => 'url|max:255|unique:portofolio',
+            'link' => 'url|max:255|unique:portofolio|nullable',
             'image' => 'image|file|max:10000|nullable',
             'category_id' => 'required'
         ]);
@@ -99,6 +99,7 @@ class DashboardPortofolio extends Controller
             }
             $validatedData['image'] = $request->file('image')->store('portofolio-images');
         }
+        // dd($validatedData);
         $data->update($validatedData);
         return redirect()->route('portofolio.index', ['portofolio' => $slug]);
     }

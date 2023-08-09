@@ -13,14 +13,14 @@
 </div>
 {{--  --}}
 
-<div class="mx-20">
-    <div class="border w-[25%] mx-auto p-6 rounded-xl shadow-xl">
+<div class="mx-20 ">
+    <div class="border w-[25%] mx-auto p-6 rounded-xl shadow-xl mb-10">
         <form action="/dashboard/portofolio/{{ $slug }}" method="post" enctype="multipart/form-data">
             @csrf
 <div class="mb-5">
     <label for="Judul" class="block mb-3 dark:text-active font-bold text-xl">Judul <span class="text-red-700">*</span></label>
 
-    <input type="text" class="px-2 py-1 rounded-xl border border-active @error('judul')ring-2 ring-red-700 border-none @enderror" name="judul">
+    <input type="text" class="px-2 py-1 rounded-xl border border-active @error('judul')ring-2 ring-red-700 border-none @enderror" name="judul" value="{{ old('judul') }}">
     @error('judul')
 <div class="my-2 text-red-700 text-sm">
     {{ $message }}
@@ -29,7 +29,7 @@
 </div>
 <div class="mb-5">
     <label for="Judul" class="block mb-3 dark:text-active font-bold text-xl">Link Proyek</label>
-    <input type="text" class="px-2 py-1 rounded-xl border border-active @error('link') border-none ring-2 ring-red-700 @enderror" name="link">
+    <input type="text" class="px-2 py-1 rounded-xl border border-active @error('link') border-none ring-2 ring-red-700 @enderror" name="link" value="{{ old('link') }}">
     @error('link')
 <div class="my-2 text-red-700 text-sm">
     {{ $message }}

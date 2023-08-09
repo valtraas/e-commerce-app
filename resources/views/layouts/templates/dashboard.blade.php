@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="">
+<html lang="en" class="scroll-smooth">
 <head>
     <head>
         <meta charset="UTF-8">
@@ -15,9 +15,10 @@
         <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
         @notifyCss
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 </head>
-<body class="font-Poppins dark:bg-[#001C30]">
+<body class="font-Poppins dark:bg-[#001C30]" >
     @include('notify::components.notify')
     @include('layouts.sidebar')
     
@@ -26,7 +27,9 @@
     @yield('content')
 </div>
     </main>
+    
     @notifyJs
+   <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
     <script src="{{ asset('js/preview.js') }}"></script>
 </body>

@@ -13,7 +13,7 @@
                             <a href=""> <i class="fa-brands fa-facebook hover:text-blue-600 duration-300"></i></a>
                         </li>
                         <li>
-                            <a href=""><i class="fa-brands fa-twitter hover:text-blue-600 duration-300"></i></a>
+                            <a href=""><i class="fa-brands fa-x-twitter hover:text-black duration-300"></i></a>
                         </li>
                         <li>
                             <a href=""><i class="fa-brands fa-linkedin hover:text-blue-500 duration-300"></i></a>

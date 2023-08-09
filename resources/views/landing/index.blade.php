@@ -38,9 +38,11 @@
                 
             <div class="card mx-auto">
                 <div class="card-image">
-                    <img src="./image/kedai.png" alt="" class="mx-auto">
+                    @if ($item->image)
+                    <img src="{{ asset('storage/'.$item->image) }}" alt="" class="mx-auto">
+                    @endif
                 </div>
-                <div class="card-text text-center font-bold my-5 px-20">
+                <div class="card-text text-center font-bold my-5 md:px-20">
                     <p class="md:text-xl font-bold">{{ $item->judul }}</p>
                     <p class="text-xs md:text-sm text-active ">{{ $item->category->name }}</p>
                 </div>

@@ -51,10 +51,8 @@
    </div>
 
     <div class=" text-xl p-6 flex flex-col justify-center items-center">
-        <form action="{{ route('kontak.message') }}" method="post">
+        <form action="{{ route('kontak.message') }}" method="post" id="form-kontak">
             @csrf
-          
-                
             <div class="mb-5">
                 <label for="nama" class="block mb-3 font-bold">Nama <span class="text-red-600">*</span></label>
                 <input type="text" class="border border-black rounded-xl px-4 py-2  @error('name') border-red-700 @enderror " placeholder="Masukan nama anda" name="name">
@@ -90,5 +88,23 @@
         </form>
     </div>
 </div>
-
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("#form-kontak"); // Pilih form
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah form di-submit secara langsung
+            if (form.checkValidity()) {
+            Swal.fire({
+                icon: "success",
+                title: "Success!",
+                text: "Pesan berhail terkirim",
+                timer: 3000, // Mengatur waktu dalam milidetik (3000ms = 3 detik)
+                showConfirmButton: false, // Menyembunyikan tombol OK
+            }).then((result) => {
+                form.submit();
+            });
+        }
+        });
+    });
+    </script>
 @endsection

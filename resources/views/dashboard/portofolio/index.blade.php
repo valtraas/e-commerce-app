@@ -41,6 +41,7 @@
                 </thead>
                 <tbody>
                     @foreach ($portofolio as $item)
+                    {{-- @dd($item) --}}
                     <tr class="dark:text-white">
                         <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                         <td class="border px-4 py-2">{{ $item->judul }}</td>
@@ -49,8 +50,7 @@
                             <td class="border px-4 py-2">
                                 @if ($item->image)
                                     <img src="{{ asset('storage/'.$item->image) }}" alt="" width="70" class="mx-auto">
-                                    @else
-                                    <img src="https://source.unsplash.com/200x200?river" alt="" class="w-28">
+                                    
                                 @endif
                             </td>
                         
@@ -62,11 +62,11 @@
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
                                 </div>
-                                <form action="{{ route('portofolio.delete',['portofolio'=>$item->judul]) }} " method="POST">
+                                <form action="{{ route('portofolio.delete',['portofolio'=>$item->judul]) }} " method="POST" id="deleteForm">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800"
-                                        onclick="return confirm('Apakah anda yakin ? ')">
+                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800 deleteButton"
+                                   >
 
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>

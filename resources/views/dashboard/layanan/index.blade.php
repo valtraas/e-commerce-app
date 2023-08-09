@@ -50,8 +50,7 @@
                         <td class="border px-4 py-2">
                             @if ($item->image)
                                 <img src="{{ asset('storage/'.$item->image) }}" alt="" width="70" class="mx-auto">
-                                @else
-                                <img src="https://source.unsplash.com/200x200?{{ $item->name }}" alt="">
+                               
                             @endif
                         </td>
                         
@@ -69,11 +68,10 @@
                                         <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
                                 </div>
-                                <form action="/dashboard/layanan/{{ $item->slug }}" method="post">
+                                <form action="/dashboard/layanan/{{ $item->slug }}" method="post" id="deleteForm">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800"
-                                        onclick="return confirm('Apakah anda yakin ? ')">
+                                    <button class="bg-red-600 rounded-md px-2 py-1 text-white hover:bg-red-800 deleteButton">
 
                                         <i class="fa-regular fa-trash-can"></i>
                                     </button>

@@ -61,11 +61,22 @@ class="compact-nav fixed  left-0 top-0 z-10 w-[calc(3.73rem)] border-r border-ac
                         </div>
                     </a>
                 </li>
+                <li class="w-max group-hover:w-full space-y-4">
+                    <a href="{{ route('teams.index') }}"  class="text-gray-500 block w-[46px] rounded-full py-2 group-hover:w-full {{ request()->is('dashboard/teams*') ? 'bg-active  text-white dark:bg-white dark:text-active' : 'text-gray-500 hover:bg-active hover:text-white hover:font-bold dark:hover:bg-white dark:hover:text-active dark:hover:font-bold' }} ">
+                        <div class="flex items-center gap-5  px-2.5 text-xl">
+                            <i class="fa-solid fa-users"></i>
+                            <span>
+                                Team
+                            </span>
+                        </div>
+                    </a>
+                </li>
                
                 <li class="w-max group-hover:w-full space-y-4">
-                    <form action="/logout" method="POST">
+                    <form action="/logout" method="POST" id="formLogout">
                         @csrf
-                         <button class="text-gray-500 block hover:group-hover:w-full rounded-full hover:bg-red-700 hover:text-white py-2">
+                         <button class="text-gray-500 block hover:group-hover:w-full rounded-full hover:bg-red-700 hover:text-white py-2" id="btn-logout"> 
+                
                         <div class="flex items-center gap-5  px-4 text-xl">
                             <i class="fa-solid fa-right-from-bracket"></i>
                             <span >
@@ -88,7 +99,7 @@ class="compact-nav fixed  left-0 top-0 z-10 w-[calc(3.73rem)] border-r border-ac
                 <img src="{{ asset('storage/'.auth()->user()->image) }}" alt="" class="w-10 h-10 rounded-full">
                 @else
                     
-                <img src="https://source.unsplash.com/50x50?planets" alt="" class="w-10 h-10 rounded-full">
+                <img src="{{ asset('image/Avatar.png') }}" alt="" class="w-10 h-10 rounded-full">
                 @endif
                 <div>
                     <h6 class="text-gray-600 font-medium dark:text-active">

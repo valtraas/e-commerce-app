@@ -11,6 +11,7 @@ use App\Models\laporan;
 use App\Models\PortofolioModel;
 use App\Models\proses;
 use App\Models\roles;
+use App\Models\Team;
 use App\Models\ulasan;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -38,7 +39,7 @@ class DatabaseSeeder extends Seeder
             'username' => 'Algo',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'roles_id' => 1,
-            'token' => Str::random(40)
+            'token' => Str::random(4)
         ]);
         // ulasan::factory(2)->create();
         // proses::factory(5)->create();
@@ -68,6 +69,12 @@ class DatabaseSeeder extends Seeder
         roles::create(
             [
                 'name' => 'Admin'
+            ]
+        );
+
+        Team::create(
+            [
+                'name' => 'Neptune'
             ]
         );
     }

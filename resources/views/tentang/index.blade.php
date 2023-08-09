@@ -104,33 +104,22 @@
 <div class="my-28 ">
     <p class="text-center text-3xl font-bold my-20">Tim Kami</p>
     <div class="flex justify-center gap-7 flex-wrap">
+        @foreach ($team as $item)
         <div class="card border  shadow-lg p-4 rounded-md ">
             <div>
-             <img src="{{ asset('image/person.png') }}" alt="" width="200">
+                @if ($item->image)
+                <img src="{{ asset('storage/'.$item->image) }}" alt="" width="200">
+                
+                @else
+                <img src="{{ asset('image/Avatar.png') }}" alt="" width="200" class="rounded-md">
+                    
+                @endif
             </div>
             <div class="text-center my-4">
-                <p class="text-active font-bold text-2xl">Username</p>
-                <p class="text-sm">Founder</p>
+                <p class="text-active font-bold text-2xl">{{ $item->name }}</p>
             </div>
         </div>
-        <div class="card border  shadow-lg p-4 rounded-md ">
-            <div>
-             <img src="{{ asset('image/person.png') }}" alt="" width="200">
-            </div>
-            <div class="text-center my-4">
-                <p class="text-active font-bold text-2xl">Username</p>
-                <p class="text-sm">Founder</p>
-            </div>
-        </div>
-        <div class="card border  shadow-lg p-4 rounded-md ">
-            <div>
-             <img src="{{ asset('image/person.png') }}" alt="" width="200">
-            </div>
-            <div class="text-center my-4">
-                <p class="text-active font-bold text-2xl">Username</p>
-                <p class="text-sm">Founder</p>
-            </div>
-        </div>
+        @endforeach
     </div>
 </div>
     {{-- end Tim --}}

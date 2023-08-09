@@ -9,9 +9,10 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TeamController;
 use App\Models\Category;
-use App\Models\kontak;
 use App\Models\PortofolioModel;
+use App\Models\Team;
 use App\Models\ulasan;
 use Illuminate\Support\Facades\Route;
 
@@ -33,10 +34,9 @@ Route::get('/', function () {
         'title' => 'Teknorithm | Home',
         'layanan' => Category::all(),
         'portofolio' => PortofolioModel::with('category')->take(4)->get(),
-        'ulasan' => ulasan::with('kontak')->latest()->get()
-
+        'ulasan' => ulasan::with('kontak')->latest()->get(),
     ]);
-});
+})->name('home');
 
 Route::controller(PortofolioController::class)->group(function () {
     Route::get('/portofolio/all', 'index')->name('portofolio.index');
@@ -47,7 +47,8 @@ Route::get('/layanan/{category:slug}', [LayananController::class, 'index'])->nam
 Route::get('/tentang-kami', function () {
     return view('tentang.index', [
         'title' => 'Teknorithm | Tentang',
-        'layanan' => Category::all()
+        'layanan' => Category::all(),
+        'team' => Team::all()
     ]);
 })->name('about.index');
 
@@ -60,7 +61,7 @@ Route::controller(KontakController::class)->group(function () {
 
 Route::controller(LoginController::class)->group(function () {
     Route::get('/login/{token}', 'index')->name('login')->middleware('token.auth');
-    Route::post('/login/{token}',  'auth')->name('login');
+    Route::post('/login/{token}',  'auth')->name('login')->middleware('token.auth');
     Route::post('/logout',  'logout')->name('logout');
 });
 
@@ -76,7 +77,7 @@ Route::middleware('admin', 'auth')->group(function () {
             Route::post('{portofolio}', 'store')->name('portofolio.store');
             // update
             Route::get('{portofolio}/edit', 'edit')->name('portofolio.edit');
-            Route::put('{portofolio}/update', 'update')->name('portofolio.update');
+            Route::put('{portofolio}', 'update')->name('portofolio.update');
             // delete
             Route::delete('{portofolio}', 'destroy')->name('portofolio.delete');
         });
@@ -109,6 +110,7 @@ Route::middleware('admin', 'auth')->group(function () {
             Route::get('layanan/slug', 'slug');
         });
         Route::resource('layanan', DashboardLayanan::class)->except('show');
+        Route::resource('teams', TeamController::class)->except('show');
     });
 
     Route::prefix('/dashboard/client')->controller(DashboardClient::class)->group(function () {
