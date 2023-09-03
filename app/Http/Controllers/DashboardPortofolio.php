@@ -31,37 +31,43 @@ class DashboardPortofolio extends Controller
 
     public function create($portofolio)
     {
-        $category = Category::where('slug', $portofolio)->first();
+        try {
+            $category = Category::where('slug', $portofolio)->first();
 
-        return view('dashboard.portofolio.create', [
-            'title' => 'Dashboard | ' . $category->name,
-            'slug' => $category->slug,
-            'layanan' => $category,
-            'layananList' => Category::all()
+            return view('dashboard.portofolio.create', [
+                'title' => 'Dashboard | ' . $category->name,
+                'slug' => $category->slug,
+                'layanan' => $category,
+                'layananList' => Category::all()
 
 
-        ]);
+            ]);
+        } catch (\Exception) {
+            abort(404);
+        }
     }
 
     public function store(Request $request, $portofolio)
     {
-        $validatedData = $request->validate([
-            'judul' => 'required|unique:portofolio',
-            'link' => 'url|max:255|unique:portofolio|nullable',
-            'image' => 'image|file|max:10000|nullable',
-            'category_id' => 'required'
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'judul' => 'required|unique:portofolio',
+                'link' => 'url|max:255|unique:portofolio|nullable',
+                'image' => 'image|file|max:10000|nullable',
+                'category_id' => 'required'
+            ]);
 
-        if ($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('portofolio-images');
+
+            $category = Category::where('slug', $portofolio)->first();
+            $slug = $category->slug;
+
+
+            PortofolioModel::create($validatedData);
+
+            return redirect()->route('portofolio.index', ['portofolio' => $slug])->with('success', 'Data portofolio berhasil ditambahkan.');
+        } catch (\Exception $e) {
+            notify()->error($e->getMessage());
         }
-        $category = Category::where('slug', $portofolio)->first();
-        $slug = $category->slug;
-
-
-        PortofolioModel::create($validatedData);
-
-        return redirect()->route('portofolio.index', ['portofolio' => $slug])->with('success', 'Data portofolio berhasil ditambahkan.');
     }
 
 
@@ -85,32 +91,34 @@ class DashboardPortofolio extends Controller
 
     public function update(Request $request, $portofolio)
     {
-        $validatedData = $request->validate([
-            'judul' => 'required|max:225',
-            'link' => 'url|max:225',
-            'image' => 'image|file|max:10000|nullable',
-            'category_id' => 'required'
-        ]);
-        $data = PortofolioModel::with('category')->where('judul', $portofolio)->first();
-        $slug = $data->category->slug;
-        if ($request->file('image')) {
-            if ($data->image) {
-                Storage::delete($data->image);
-            }
-            $validatedData['image'] = $request->file('image')->store('portofolio-images');
+        try {
+            $validatedData = $request->validate([
+                'judul' => 'required|max:225',
+                'link' => 'url|max:225',
+                'image' => 'image|file|max:10000|nullable',
+                'category_id' => 'required'
+            ]);
+            $data = PortofolioModel::with('category')->where('judul', $portofolio)->first();
+            $slug = $data->category->slug;
+
+            $data->update($validatedData);
+            return redirect()->route('portofolio.index', ['portofolio' => $slug]);
+        } catch (\Exception $e) {
+            notify()->error($e->getMessage());
         }
-        // dd($validatedData);
-        $data->update($validatedData);
-        return redirect()->route('portofolio.index', ['portofolio' => $slug]);
     }
 
     public function destroy($portofolio)
     {
-        $data = PortofolioModel::where('judul', $portofolio)->first();
-        if ($data->image) {
-            Storage::delete($data->image);
+        try {
+            $data = PortofolioModel::where('judul', $portofolio)->first();
+            if ($data->image) {
+                Storage::delete($data->image);
+            }
+            $data->delete();
+            return back();
+        } catch (\Exception $e) {
+            notify()->error($e->getMessage());
         }
-        $data->delete();
-        return back();
     }
 }

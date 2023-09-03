@@ -12,6 +12,9 @@
     </div>
     {{-- end hero --}}
     
+    @if (count($proses) && count($fitur))
+        
+   
     {{-- alur kerja --}}
     @if (count($proses)!=0)
     <div class="my-20">
@@ -52,7 +55,7 @@
     {{-- end alur kerja --}}
 
     {{-- fitur  --}}
-    @if (count($proses) != 0)
+    @if (count($fitur) != 0)
     <div>
             <p class="text-center font-bold md:text-3xl text-2xl">Fitur yang anda dapatkan</p>
             <div class="my-20">
@@ -89,4 +92,7 @@
     </div>
 </div>
     {{-- end harga --}}
+    @else
+        <p class="text-center text-3xl font-bold my-20">Belum ada penawaran di layanan ini </p>
+    @endif
 @endsection

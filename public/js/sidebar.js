@@ -78,10 +78,10 @@ document.addEventListener("DOMContentLoaded", function () {
             confirmButtonText: 'Logout'
         }).then((result) => {
             if (result.isConfirmed) {
-                Swal.fire(
-                    'Logout berhasil!',
-
-                    'success'
+                Swal.fire({
+                    icon: 'success',
+                    text: 'Logout berhasil'
+                }
                 )
                 logoutForm.submit()
             }

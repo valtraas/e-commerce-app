@@ -4,7 +4,12 @@
      <div class="my-20">
         <p class="text-center text-active font-bold text-4xl uppercase">portofolio</p>
         <div class="w-1/2 mx-auto my-10">
-            <p class="text-center text-sm md:text-base">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ullam hic, enim distinctio tempore odio alias aliquam nisi cum repudiandae.</p>
+            <p class="text-center text-sm md:text-xl">
+                @if (count($portofolio) >= 5)
+                Kami telah berhasil membuat {{ count($portofolio) }} proyek. Berikut beberapa proyek yang kami hasilkan</p>
+                @else
+                Kami telah berhasil membuat beberapa proyek. Berikut proyek yang kami hasilkan
+                @endif
         </div>
     </div>
     <div>

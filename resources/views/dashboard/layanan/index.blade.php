@@ -36,7 +36,6 @@
                         <th class="px-4 py-2 text-white bg-gray-800 dark:bg-green-800 border duration-300  delay-150">#</th>
                         <th class="px-4 py-2 text-gray-600 dark:text-active border duration-300 delay-150">Nama Layanan</th>
                         <th class="px-4 py-2 text-gray-600 dark:text-active border duration-300 delay-150">Deskripsi Layanan</th>
-                        <th class="px-4 py-2 text-gray-600 dark:text-active border duration-300 delay-150">Thumbnail</th>
                         <th class="px-4 py-2 text-gray-600 dark:text-active border duration-300 delay-150">Action</th>
 
                     </tr>
@@ -47,12 +46,7 @@
                         <td class="border px-4 py-2">{{ $loop->iteration }}</td>
                         <td class="border px-4 py-2">{{ $item->name }}</td>
                         <td class="border px-4 py-2">{{ $item->desc }}</td>
-                        <td class="border px-4 py-2">
-                            @if ($item->image)
-                                <img src="{{ asset('storage/'.$item->image) }}" alt="" width="70" class="mx-auto">
-                               
-                            @endif
-                        </td>
+                       
                         
                         <td class="border px-4 py-2">
                             <div class="flex">

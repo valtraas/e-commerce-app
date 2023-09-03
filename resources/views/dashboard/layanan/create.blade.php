@@ -41,16 +41,6 @@
     @enderror
 </div>
 
-<div class="mb-5">
-    <label for="Judul" class="block mb-3 dark:text-active font-bold text-xl">Thumbnail</label>
-    <img class="img-preview rounded-lg ">
-    <input type="file" class="px-2 py-1 rounded-xl border border-active w-full  bg-white @error('image') border-none ring-2 ring-red-700 @enderror" name="image" onchange="previewImage()" id="image-input">
-    @error('image')
-<div class="my-2 text-red-700 text-sm">
-    {{ $message }}
-</div>
-    @enderror
-</div>
 <button class="block mx-auto my-4 px-4 py-2 rounded-xl border border-active dark:bg-white dark:hover:bg-active hover:text-white dark:hover:font-bold hover:bg-active hover:font-bold duration-200" type="submit">Submit</button>
 <a href="/dashboard/layanan" class="text-sm text-center block mt-6 dark:text-blue-700 text-active hover:underline hover:font-bold">Kembali</a>
 </form>

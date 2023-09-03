@@ -228,6 +228,12 @@ class DashboardLayanan extends Controller
             'desc' => 'required|max:225',
             'icon' => 'image|file|max:2000|nullable'
         ]);
+        if ($request->file('icon')) {
+            if ($fitur->icon) {
+                Storage::delete($fitur->icon);
+            }
+            $validatedData['icon'] = $request->file('icon')->store('fitur-icon');
+        }
         notify()->success('Berhasil merubah fitur layanan');
         $fitur->update($validatedData);
         return redirect()->route('detail.index', ['category' => $fitur->category->slug]);

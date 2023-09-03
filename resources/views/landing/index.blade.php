@@ -96,7 +96,7 @@
                     <p class="font-bold my-4 text-xl group-hover:text-active duration-200 group-hover:font-extrabold">Harga yang bersaing</p>
                 </div>
                 <div>
-                    <p>Anda dapat mendapatkan harga yang kompetitif dan terjangkau untuk layanan yang kami tawarkan
+                    <p>Anda mendapatkan harga yang kompetitif dan terjangkau untuk layanan yang kami tawarkan
                     </p>
                 </div>
             </div>
@@ -106,18 +106,16 @@
                     <p class="font-bold my-4 text-xl group-hover:text-active duration-200 group-hover:font-bold">Kustomisasi</p>
                 </div>
                 <div>
-                    <p>Tim kustom dapat menciptakan desain kustom yang unik dan menarik untuk bisnis Anda.</p>
+                    <p>Tim kustom dapat menciptakan desain kustom sesuai kebutuhan bisnis Anda.</p>
                 </div>
             </div>
             <div class="rounded-xl bg-white md:w-1/2 p-3 group">
                 <div>
                     <img src="./image/integrasi.png" alt="">
-                    <p class="font-bold my-4 text-xl group-hover:text-active duration-200 group-hover:font-bold">Integrasi dengan Aplikasi dan Layanan</p>
+                    <p class="font-bold my-4 text-xl group-hover:text-active duration-200 group-hover:font-bold">Pengelolaan keuangan </p>
                 </div>
                 <div>
-                    <p>Tim kami dapat mengintegrasikan bisnis Anda dengan aplikasi dan layanan lain seperti media
-                        sosial, platform email marketing, dan perangkat lunak bisnis. Hal ini memungkinkan Anda
-                        untuk meningkatkan efisiensi dan memperluas jangkauan bisnis Anda.</p>
+                    <p>Tim kami dapat membantu anda dalam pengelolaan dan pelaporan aspek keuangan dengan efisien </p>
                 </div>
             </div>
         </div>
@@ -127,10 +125,10 @@
     <div>
         <p class="text-center font-bold md:text-3xl my-10 mb-16 text-xl">Bagaimana Kami Bekerja</p>
         <div class="flex items-center justify-center gap-6 flex-wrap">
-            <div class="card border border-black p-6 w-64 rounded-md">
+            <div class="card  bg-active p-6 w-64 rounded-md text-white shadow-xl">
                 <div class="card-image my-5">
                     <img src="./image/consultasion.png" alt="" class="my-7">
-                    <p class="text-center text-xl font-bold">Consultation</p>
+                    <p class="text-center text-xl font-bold">Konsultasi</p>
                 </div>
                 <div class="card-body">
                     <p>Dalam tahap ini, Kami akan bertemu dengan klien untuk membahas kebutuhan dan pengumpulan
@@ -141,7 +139,7 @@
                 <i class="fa-sharp fa-solid fa-arrow-right text-2xl "></i>
             </div>
 
-            <div class="card border border-black p-6 w-64 rounded-md">
+            <div class="card bg-active text-white p-6 w-64 rounded-md shadow-xl">
                 <div class="card-image my-5">
                     <img src="./image/analisis.png" alt="" class="my-7">
                     <p class="text-center text-xl font-bold">Analisis</p>
@@ -154,10 +152,10 @@
             <div class="md:inline hidden">
                 <i class="fa-sharp fa-solid fa-arrow-right text-2xl "></i>
             </div>
-            <div class="card border border-black p-6 w-64 rounded-md">
+            <div class="card bg-active text-white p-6 w-64 rounded-md shadow-xl">
                 <div class="card-image my-5">
                     <img src="./image/develop.png" alt="" class="my-7">
-                    <p class="text-center text-xl font-bold">Development</p>
+                    <p class="text-center text-xl font-bold">Membangun</p>
                 </div>
                 <div class="card-body">
                     <p>Tahap yang terakhir kami akan mulai mengerjakan setelah menganalisis kebutuhan dan informasi
@@ -167,35 +165,9 @@
         </div>
     </div>
     <!-- End Alur Kerja -->
-    <!-- Layanan -->
-    <div class="bg-active my-16 p-6">
-        <div class="pt-8 mb-16">
-            <p class="md:text-3xl text-center font-bold text-white text-xl"> Layanan Kami</p>
-        </div>
-        <div class="flex justify-center items-center gap-16 mb-16 flex-wrap">
-            @foreach ($layanan as $item)
-                
-            <div class="card bg-white p-3 rounded-md w-64 h-[520px] flex flex-col justify-between ">
-                <div class="card-image">
-                    <img src="{{ asset('storage/'.$item->image) }}" alt="" class="my-7 w-40 mx-auto">
-                    <p class="text-center md:text-2xl font-bold text-xl">{{ $item->name }}</p>
-                </div>
-                    <p class="text-center mb-10 mt-7">{{$item->desc}}
-                    </p>
-                    <a href="/layanan/{{ $item->slug }}"
-                        class="text-center px-4 py-2 rounded-xl border border-active hover:bg-active hover:text-white hover:font-bold flex justify-center duration-150">
-                        Selengkapnya</a>
-
-            </div>
-            @endforeach
-
-            
-
-        </div>
-    </div>
-    <!-- end layanan -->
+  
     <!-- Ulasan -->
-    <div>
+    <div class="my-10 mt-28">
         <p class="text-center md:text-3xl font-bold text-xl">Bagaimana Ulasan Mereka Tentang kami</p>
 
         <div class="w-[70%] mx-auto my-20">

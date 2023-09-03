@@ -3,7 +3,8 @@
 <div class="h-16 border-b border-active flex items-center">
     <div class=" flex items-center px-4 dark:text-active  gap-4 text-2xl font-bold duration-300 delay-150">
         <div class="bg-blue-600 rounded-xl p-2 text-xl text-white shadow-xl">
-            <i class="fa-solid fa-list-ul"></i>
+            <i class="fa-solid fa-shapes"></i>
+
         </div>
         <p>Tambah Fitur Layanan </p>
     </div>

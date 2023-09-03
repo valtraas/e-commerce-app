@@ -26,14 +26,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(1)->create();
-
-        User::create([
-            'name' => 'Test User',
-            'username' => 'Neptune',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'roles_id' => 1,
-            'token' => Str::random(40)
-        ]);
+        proses::factory(4)->create();
+        fitur::factory(4)->create();
         User::create([
             'name' => 'Test User',
             'username' => 'Algo',
@@ -41,10 +35,7 @@ class DatabaseSeeder extends Seeder
             'roles_id' => 1,
             'token' => Str::random(4)
         ]);
-        // ulasan::factory(2)->create();
-        // proses::factory(5)->create();
-        // fitur::factory(3)->create();
-        // PortofolioModel::factory(10)->create();
+
         Category::create(
             [
                 'name' => 'Web Development',

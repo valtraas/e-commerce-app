@@ -4,7 +4,7 @@
          <div class="my-20">
             <p class="text-center text-active font-bold md:text-4xl uppercase text-3xl">Kontak Kami</p>
             <div class="w-1/2 mx-auto my-10">
-                <p class="text-center ">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error ullam hic, enim distinctio tempore odio alias aliquam nisi cum repudiandae.</p>
+                <p class="text-center ">Mari Bekerjasama mengembangkan bisnis anda sekarang juga.</p>
             </div>
         </div>
         <div>

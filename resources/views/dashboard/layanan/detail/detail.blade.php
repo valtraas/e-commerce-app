@@ -100,7 +100,7 @@
                    <a href="#">Fitur Layanan</a>
                </div>
              <div class="bg-slate-600 text-center mt-2 rounded-b-xl p-2 text-white  hover:font-bold duration-200 hover:underline dark:text-active">
-               <a href="{{ route('fitur.created',['category'=>$layanan->slug]) }}"><i class="fa-solid fa-circle-plus"></i> Tambah Proses Layanan</a>
+               <a href="{{ route('fitur.created',['category'=>$layanan->slug]) }}"><i class="fa-solid fa-circle-plus"></i> Tambah Fitur Layanan</a>
              </div>
            </div>
            <div class="w-72 mb-5 rounded-xl bg-white ">
@@ -182,7 +182,7 @@
         </div>
         <!-- Tambahkan menu lainnya sesuai kebutuhan -->
     </div>
-    <p class="bg-white border-2 p-2  hover:bg-active hover:text-white rounded-full  duration-150 font-bold">
+    <p class="bg-white border-2 p-2  hover:bg-active hover:text-white rounded-full  duration-150 font-bold cursor-pointer">
         <i class="fa-solid fa-circle mx-1" id="navigation"></i>
     </p>
 </div>
