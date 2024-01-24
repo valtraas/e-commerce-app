@@ -133,3 +133,7 @@ Route::middleware('admin', 'auth')->group(function () {
         Route::put('/update', 'update')->name('profile.update');
     });
 });
+
+Route::get('/send-email', function () {
+    return view('kontak.send');
+});

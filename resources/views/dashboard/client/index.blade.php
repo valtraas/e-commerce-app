@@ -91,8 +91,8 @@
             </table>
         </div>
     </div>
-    {{--  --}}
-    <div class=" border w-96 rounded-xl shadow-md dark:bg-white">
+     {{-- --}}
+    {{-- <div class=" border w-96 rounded-xl shadow-md dark:bg-white">
      <div class="flex gap-6 items-center text-2xl font-bold p-2">
         <div class="bg-yellow-600 rounded-xl p-4 text-2xl text-white shadow-xl">
             <i class="fa-solid fa-comments"></i>
@@ -102,10 +102,10 @@
         <div class="bg-slate-600 text-center mt-2 rounded-b-xl p-2 text-white  hover:font-bold duration-200 hover:underline dark:text-active">
             <a href="{{ route('ulasan.create') }}"><i class="fa-solid fa-circle-plus"></i> Tambah Ulasan</a>
           </div>
-    </div>
+    </div> --}}
        
     {{--  --}}
-    <div class="pt-6 mb-20">
+    {{-- <div class="pt-6 mb-20">
         <div class="overflow-x-auto  ">
             <table class="table-auto border-collapse border border-gray-400">
                 <thead>
@@ -149,7 +149,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> --}}
     {{--  --}}
    
 </div>

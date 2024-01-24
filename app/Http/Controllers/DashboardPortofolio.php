@@ -60,7 +60,9 @@ class DashboardPortofolio extends Controller
 
             $category = Category::where('slug', $portofolio)->first();
             $slug = $category->slug;
-
+            if ($request->file()) {
+                $validatedData['image'] = $request->file('image')->store('portofolio-image');
+            }
 
             PortofolioModel::create($validatedData);
 

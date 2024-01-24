@@ -50,6 +50,7 @@ class DashboardLayanan extends Controller
         if ($request->file('image')) {
             $validatedData['image'] = $request->file('image')->store('layanan-images');
         }
+        // dd($validatedData);
         notify()->success('Berhasil menambah layanan');
         Category::create($validatedData);
         return redirect('/dashboard/layanan');

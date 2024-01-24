@@ -70,12 +70,12 @@
 
         <div class="border p-2  text-2xl rounded-lg shadow-xl flex gap-5 w-[35%] dark:bg-white">
             <div class="bg-yellow-600 flex items-center text-white w-20 justify-center rounded-lg text-2xl">
-                <i class="fa-regular fa-comments"></i>
+                <i class="fa-solid fa-users"></i>
             </div>
             <div>
-                <p class="text-center mb-2 text-2xl font-semibold">Ulasan</p>
+                <p class="text-center mb-2 text-2xl font-semibold">Team</p>
                 <div class="flex justify-between items-center">
-                    <p class="text-2xl">{{ count($ulasan) }} </p> 
+                    <p class="text-2xl">{{ count($team) }} </p> 
                 </div>
 
             </div>

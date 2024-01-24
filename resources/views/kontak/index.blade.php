@@ -8,12 +8,13 @@
             </div>
         </div>
         <div>
-            <img src="{{ asset('image/wave.png') }}" alt="">
+            <img src="{{ asset('image/wave.png') }}" alt="" class="min-w-full">
         </div>
         {{-- end hero --}}
         {{-- form --}}
 <div class="flex p-6 justify-center my-16 items-center">
-   <div class="hidden md:block">
+    <div class="flex flex-col w-1/2">
+        <div class="hidden md:block">
      <div class=" pl-12">
         <img src="{{ asset('image/logo.png') }}" alt="" width="200">
         <p class="text-3xl font-bold my-10">Teknorithm</p>
@@ -24,7 +25,8 @@
             <span class="">Location</span>   
         </div>
         <div class="p-4">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, deleniti?</p>
+            <p>
+                Jl. Soekarno-Hatta No.107, Yoyakarta</p>
         </div>
 
     </div>
@@ -34,7 +36,8 @@
             <span class="">Telephone</span>   
         </div>
         <div class="p-4">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, deleniti?</p>
+            <p>
+                +62 0808-0808-0808</p>
         </div>
 
     </div>
@@ -44,11 +47,13 @@
             <span class="">Email</span>   
         </div>
         <div class="p-4">
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusamus, deleniti?</p>
+            <p > Teknorithm@gmail.com  </p>
         </div>
 
         </div>
    </div>
+    </div>
+   
 
     <div class=" text-xl p-6 flex flex-col justify-center items-center">
         <form action="{{ route('kontak.message') }}" method="post" id="form-kontak">

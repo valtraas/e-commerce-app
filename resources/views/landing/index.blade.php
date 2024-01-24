@@ -26,7 +26,7 @@
         <i class="fa-solid fa-arrow-down"></i>
     </div>
     <div class="my-20">
-        <img src="{{ asset('image/wave.png') }}" alt="">
+        <img src="{{ asset('image/wave.png') }}" alt="" class="min-w-full">
     </div>
     <!-- Portofolio -->
     <div>
@@ -39,7 +39,7 @@
             <div class="card mx-auto">
                 <div class="card-image">
                     @if ($item->image)
-                    <img src="{{ asset('storage/'.$item->image) }}" alt="" class="mx-auto">
+                    <img src="{{ asset('storage/'.$item->image) }}" alt="" class="mx-auto w-60 rounded-md">
                     @endif
                 </div>
                 <div class="card-text text-center font-bold my-5 md:px-20">
@@ -73,13 +73,9 @@
                 <p class="text-center"><span id="count2" class="text-2xl">0</span>+</p>
                 <p>Client</p>
             </div>
-            <div>
-                <p class="text-center"><span id="count3" class="text-2xl">0</span>+</p>
-                <p>Ulasan</p>
-            </div>
         </div>
         
-        <div class="flex flex-wrap my-16 justify-center gap-10 ">
+        <div class="flex flex-wrap my-16 justify-center gap-10  lg:w-[70%] lg:mx-auto">
             <div class="rounded-xl bg-white md:w-1/2 p-3 group">
                 <div>
                     <img src="./image/pengalaman.png" alt="">
@@ -124,7 +120,7 @@
     <!-- Alur Kerja -->
     <div>
         <p class="text-center font-bold md:text-3xl my-10 mb-16 text-xl">Bagaimana Kami Bekerja</p>
-        <div class="flex items-center justify-center gap-6 flex-wrap">
+        <div class="flex items-center justify-center gap-6 flex-wrap mb-28">
             <div class="card  bg-active p-6 w-64 rounded-md text-white shadow-xl">
                 <div class="card-image my-5">
                     <img src="./image/consultasion.png" alt="" class="my-7">
@@ -167,7 +163,7 @@
     <!-- End Alur Kerja -->
   
     <!-- Ulasan -->
-    <div class="my-10 mt-28">
+    {{-- <div class="my-10 mt-28">
         <p class="text-center md:text-3xl font-bold text-xl">Bagaimana Ulasan Mereka Tentang kami</p>
 
         <div class="w-[70%] mx-auto my-20">
@@ -241,7 +237,7 @@
                 <img src="./image/quote2.png" alt="" class="">
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- End Ulasan -->
 @endsection
 
@@ -336,7 +332,7 @@
         const countElement = document.getElementById("count");
         const countElement2 = document.getElementById("count2");
         const countElement3 = document.getElementById("count3");
-        const targetCount = 30;
+        const targetCount = 5;
 
         animateCountOnScroll(countElement, targetCount, 3000);
         animateCountOnScroll(countElement2, targetCount, 3000);

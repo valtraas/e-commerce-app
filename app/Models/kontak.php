@@ -21,7 +21,7 @@ class kontak extends Model
 
         static::created(function ($item) {
 
-            $adminEmail = "pelangiwarnawarni630@gmail.com";
+            $adminEmail = "Nepts@gmail.com";
             Mail::to($adminEmail)->send(new kontakMail($item));
         });
     }

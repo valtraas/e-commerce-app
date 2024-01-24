@@ -8,7 +8,7 @@
         </div>
     </div>
     <div>
-        <img src="{{ asset('image/wave.png') }}" alt="">
+        <img src="{{ asset('image/wave.png') }}" alt="" class="min-w-full">
     </div>
     {{-- end hero --}}
     

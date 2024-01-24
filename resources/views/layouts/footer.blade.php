@@ -1,6 +1,6 @@
 <footer>
     <div>
-        <img src="{{ asset('image/wave2.png') }}" alt="">
+        <img src="{{ asset('image/wave2.png') }}" alt="" class="min-w-full">
     </div>
     <div>
         <div class="bg-footer">
@@ -63,9 +63,7 @@
                                     <i class="fa-solid fa-location-dot mx-5"></i>
                                 </div>
                                 <p>
-                                    Lorem ipsum dolor sit amet
-                                    consectetur
-                                    adipisicing elit. Saepe, nulla.
+                                   Jl. Soekarno-Hatta No.107, Yoyakarta
                                 </p>
 
                             </li>
@@ -80,7 +78,7 @@
                                 <div>
                                     <i class="fa-solid fa-envelope mx-5"></i>
                                 </div>
-                                <p>galgorithm000@gmail.com</p>
+                                <p>Teknorithm@gmail.com</p>
 
                             </li>
                         </ul>

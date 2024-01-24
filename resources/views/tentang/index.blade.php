@@ -8,14 +8,14 @@
         </div>
     </div>
     <div>
-        <img src="{{ asset('image/wave.png') }}" alt="">
+        <img src="{{ asset('image/wave.png') }}" alt="" class="min-w-full">
     </div>
     {{-- end hero --}}
     {{-- tujuan --}}
 <div class="my-28">
     <div class="flex justify-center items-center gap-5 flex-wrap">
 <div class="md:w-1/4 text-center md:text-start p-2 md:p-0">
-    <p>Teknorithm adalah sebuah website yang menyediakan layanan digital seperti web development, internet for business, dan UI/UX desaign</p>
+    <p>Teknorithm adalah sebuah perusahaan yang bergerak dalam bidang digital  yang menyediakan layanan  seperti web development, internet for business, dan UI/UX desaign</p>
 </div>
 <div>
     <img src="{{ asset('image/ui.png') }}" alt="" class="md:block hidden">
@@ -55,7 +55,7 @@
 <div class="my-28">
     <div class="bg-active p-6">
         <p class="text-center text-white font-bold md:text-3xl my-10 text-2xl">Mengapa harus kami</p>
-        <div class="flex flex-wrap my-16 justify-center gap-10 ">
+        <div class="flex flex-wrap my-16 justify-center gap-10  lg:w-[70%] lg:mx-auto ">
             <div class="rounded-xl bg-white md:w-1/2 p-3 group">
                 <div>
                     <img src="./image/pengalaman.png" alt="">

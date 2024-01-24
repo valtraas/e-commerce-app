@@ -7,6 +7,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\fitur;
 use App\Models\harga;
+use App\Models\kontak;
 use App\Models\laporan;
 use App\Models\PortofolioModel;
 use App\Models\proses;
@@ -26,23 +27,24 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // \App\Models\User::factory(1)->create();
-        proses::factory(4)->create();
-        fitur::factory(4)->create();
-        User::create([
-            'name' => 'Test User',
-            'username' => 'Algo',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'roles_id' => 1,
-            'token' => Str::random(4)
-        ]);
+        // proses::factory(4)->create();
+        // fitur::factory(4)->create();
+        // kontak::factory(5)->create();
+        // User::create([
+        //     'name' => 'Test User',
+        //     'username' => 'Algo',
+        //     'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+        //     'roles_id' => 1,
+        //     'token' => Str::random(4)
+        // ]);
 
-        Category::create(
-            [
-                'name' => 'Web Development',
-                'slug' => 'web-development',
-                'desc' => 'Kami menawarkan jasa pembuatan website sesuai kebutuhan anda.'
-            ]
-        );
+        // Category::create(
+        //     [
+        //         'name' => 'Web Development',
+        //         'slug' => 'web-development',
+        //         'desc' => 'Kami menawarkan jasa pembuatan website sesuai kebutuhan anda.'
+        //     ]
+        // );
         Category::create(
             [
                 'name' => 'Internet For Business',
@@ -57,16 +59,16 @@ class DatabaseSeeder extends Seeder
                 'desc' => 'Kami menawarkan jasa UI / UX yang menarik untuk membantu anda menciptakan pengalaman pengguna yang luar biasa'
             ]
         );
-        roles::create(
-            [
-                'name' => 'Admin'
-            ]
-        );
+        // roles::create(
+        //     [
+        //         'name' => 'Admin'
+        //     ]
+        // );
 
-        Team::create(
-            [
-                'name' => 'Neptune'
-            ]
-        );
+        // Team::create(
+        //     [
+        //         'name' => 'Neptune'
+        //     ]
+        // );
     }
 }
